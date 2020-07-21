@@ -1,15 +1,24 @@
 const express = require('express');
 const app = express();
-var path = require("path");
+var path = require('path');
+var bodyParser = require('body-parser');
 const port = 3000
+
+// add static files support
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-app.locals.loggedIn = false;
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
+
+app.use(bodyParser.json());
 
 app.get('/', function (req, res, next) {
-  console.log('App started!!!');
   return res.render('index', {title: "TO-DO"});
 })
 
