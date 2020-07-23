@@ -1,5 +1,9 @@
 
 
+.required::after {
+  content: " *";
+  color: #e60000;
+}
 
 @media (min-width: 720px) {
   #add-task {
