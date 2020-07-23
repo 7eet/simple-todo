@@ -3,25 +3,26 @@
     | <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus text-light" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     |    <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
     |    <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
-    |  </svg>&nbsp;&nbsp;Add task
+    |  </svg>&nbsp;&nbsp;add task
   </a>
 </div>
 
 <div id="add-task" class="collapse p-2">
-  <form method="post" action="/home">
+  <form method="post" action="/" class="border border-dark p-3 rounded">
     <div class="form-group form-row my-3" id="title">
-      <label for="tTitle">Heading</label>
-      <input type="text" id="tTitle" class="form-control" name="tTitle">
+      <label for="tTitle" class="required">Heading</label>
+      <input type="text" id="tTitle" class="form-control" name="tTitle" required>
     </div>
     <div class="form-group form-row my-3" id="description">
       <label for="tDescription">Short Description</label>
-      <input type="text" id="tDescription" class="form-control" name="tDescription">
+      <textarea id="tDescription" class="form-control" name="tDescription" rows="3" cols="5">
+      </textarea>
     </div>
     <div class="form-group form-row my-3" id="status">
       <label for="status">Status</label>
       <div class="ml-3">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="notStarted" value="notStarted">
+          <input class="form-check-input" type="radio" name="status" id="notStarted" value="notStarted" checked>
           <label class="form-check-label" for="notStarted">
             |Not Started
           </label>
@@ -41,7 +42,22 @@
       </div>
     </div>
     <div class="form-group my-3">
-      <button class="btn btn-primary" type="submit">Add</button>
+      <button class="btn btn-primary" type="submit">add it</button>
     </div>
   </form>
 </div>
+
+
+if data.length > 0
+  <div class="list">
+    <ul class="list-group">
+      each item in data
+        li.list-group-item 
+          h4.text-dark #{item.tTitle}
+          p.text-muted #{item.tDescription}
+    </ul>
+  </div>
+else 
+  <div class="my-3">
+    h3.text-muted You have 0 tasks.
+  </div>
