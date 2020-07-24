@@ -1,0 +1,13 @@
+if completed.length > 0
+  <div class="list">
+    <ul class="list-group">
+      each item in data
+        li.list-group-item 
+          h4.text-dark #{item.tTitle}
+          p.text-muted #{item.tDescription}
+    </ul>
+  </div>
+else 
+  <div class="my-3">
+    h3.text-muted -----
+  </div>

@@ -4,6 +4,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 const port = 3000
 
+var indexRouter = require("./routes/index");
+
 // add static files support
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -18,9 +20,7 @@ app.use(
 
 app.use(bodyParser.json());
 
-app.get('/', function (req, res, next) {
-  return res.render('index', {title: "TO-DO"});
-})
+app.use("/", indexRouter);
 
 app.listen(port, () => { 
   console.log(`Server started at port ${port}`);
