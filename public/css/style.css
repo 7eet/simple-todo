@@ -5,6 +5,32 @@
   color: #e60000;
 }
 
+.container {
+  padding: 5px 20px;
+}
+
+.custom-bg {
+  background-color: #20232a;
+  color: #61dafb;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.list-group-item:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.round {
+  border: 1px solid #dfdfdf;
+  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 @media (min-width: 720px) {
   #add-task {
     width: 50%;

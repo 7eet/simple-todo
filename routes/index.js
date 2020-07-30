@@ -1,28 +1,20 @@
 var express = require('express');
 var router = express.Router();
 const localStorage = require('../controller/local');
+var uniqid = require("uniqid");
+
 
 router.get("/", function (req, res, next) {
   todoData = localStorage.readFile('data.txt');
-  progessData = localStorage.readFile("in-progress.txt");
-  completedData = localStorage.readFile('completed.txt');
-  return res.render('index', { title: "TO-DO" , data: todoData, progress: progessData, completed: completedData});
+  return res.render('content/home', { title: "TO-DO" , data: todoData});
 });
 
 router.post("/", function (req, res, next) {
   let data = req.body;
+  data['id'] = uniqid();
   data['date'] = new Date();
-  if (data.status == "notStarted") {
-    console.log("not started");
-    localStorage.writeFile("data.txt", data);
-  } else if (data.status == "progress") {
-    console.log("progess");
-    localStorage.writeFile("in-progress.txt", data);
-  } else { 
-    console.log("completed");
-    localStorage.writeFile("completed.txt", data);
-  }
-  console.log(data);
+  data['status'] = "In-Progress";
+  localStorage.writeFile("data.txt", data);
   return res.redirect("/");
 });
 
