@@ -1,4 +1,6 @@
-
+body {
+  background-color: #101820FF;
+}
 
 .required::after {
   content: " *";
@@ -25,10 +27,17 @@
 }
 
 .round {
-  border: 1px solid #dfdfdf;
   border-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.mine-bg {
+  background-color: #FFFFFF ; /*#00203FFF;*/
+}
+
+.mine-text {
+  color:#101820FF ; /*#ADEFD1FF;*/
 }
 
 @media (min-width: 720px) {
