@@ -2,6 +2,10 @@ body {
   background-color: #101820FF;
 }
 
+#for-md-devices {
+    display: none;
+}
+
 .required::after {
   content: " *";
   color: #e60000;
@@ -43,5 +47,13 @@ body {
 @media (min-width: 720px) {
   #add-task {
     width: 50%;
+  }
+
+  #for-small-devices {
+    display: none;
+  }
+
+  #for-md-devices {
+    display: block;
   }
 }
