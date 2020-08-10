@@ -9,9 +9,11 @@ router.get("/:id", function (req, res) {
     data = newData(params);
     console.log("--New data:-> " + JSON.stringify(data));
     filteredArray = removeOldData(params);
-    filteredArray.push(data);
     console.log("filted ->>> " + JSON.stringify(filteredArray))
     localStorage.writeFile('data.txt', filteredArray, true);
+    completedArray = localStorage.readFile("completed.txt");
+    completedArray.push(data);
+    localStorage.writeFile("completed.txt", completedArray, true);
     return res.redirect("/");
   }
   todoData = localStorage.readFile('data.txt');
@@ -22,8 +24,8 @@ function newData(parm) {
   array = localStorage.readFile('data.txt');
   oldData = array.find(item => item.id == parm.id);
   oldData.status = 'completed'
-  newData = oldData;
-  return newData;
+  result = oldData;
+  return result;
 }
 
 function removeOldData(parm) { 
