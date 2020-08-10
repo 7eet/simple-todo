@@ -6,6 +6,7 @@ const port = 7000
 
 var indexRouter = require("./routes/index");
 var completedRouter = require("./routes/completed");
+var progressRouter = require("./routes/progress");
 var deleteRouter = require("./routes/delete");
 
 // add static files support
@@ -23,6 +24,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.use("/", indexRouter);
+app.use("/progress", progressRouter);
 app.use("/completed", completedRouter);
 app.use("/delete", deleteRouter);
 
