@@ -1,3 +1,21 @@
+mixin addForm(collapseId,route)
+  <div id=#{collapseId} class="collapse p-2">
+    <form method="post" action=#{route}>
+      <div class="form-group form-row my-3" id="title">
+        <label for="tTitle">Title</label>
+        <input type="text" id="tTitle" class="form-control" name="tTitle" required>
+      </div>
+      <div class="form-group form-row my-3" id="description">
+        <label for="tDescription">Short Description</label>
+        <textarea id="tDescription" class="form-control" name="tDescription" rows="3" cols="5">
+        </textarea>
+      </div>
+      <div class="form-group my-3">
+        <button class="btn btn-warning" type="submit">add it</button>
+      </div>
+    </form>
+  </div>
+
 html
   head
     title #{title}
@@ -18,7 +36,7 @@ html
   body
     include ./nav.pug
     
-    <div class="container">
+    <div class="px-3" class="content-here">
       block content
     </div>
 
