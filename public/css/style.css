@@ -2,12 +2,14 @@ body {
   background-color: #e5eff5 /*#ffffff /*#ADEFD1FF /*#00203FFF;*/
 }
 
-
+.navbar {
+  padding: 2px;
+}
 
 #tasks {
   width: max-content;
   height: 100vh;
-  overflow: scroll;
+  margin-top: 60px;
 }
 
 #task, #completed, #progress {
@@ -56,10 +58,16 @@ select {
 @media (min-width: 720px) {
   #tasks {
   width: max-content;
+  height: 90vh;
+  margin-top: 10px;
   }
 }
 
 @media (min-width: 960px) {
+
+  #lg-none {
+    display: none;
+  }
   #task, #completed, #progress {
     background-color: #4a8fdd;
     overflow-x: hidden;
