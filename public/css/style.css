@@ -1,9 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+html {
+  font-family: 'PT Sans', sans-serif;
+}
+
 body {
-  background-color: #e5eff5 /*#ffffff /*#ADEFD1FF /*#00203FFF;*/
+  background-color: #e5eff5; /*#ffffff /*#ADEFD1FF /*#00203FFF;*/
+  font-family: inherit;
+  font-size: 14px;
 }
 
 .navbar {
   padding: 2px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 800;
 }
 
 #tasks {
@@ -51,23 +63,53 @@ select {
   padding-right: 5px;;
 }
 
+.form-control {
+  border-radius: 25px;
+  font-size: 14px;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
 }
 
 @media (min-width: 720px) {
-  #tasks {
-  width: max-content;
-  height: 90vh;
-  margin-top: 10px;
+
+  body {
+    font-size: 16px;
   }
+
+  h3 {
+    font-size:28px;
+    font-weight: 800;
+  }
+
+  #tasks {
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+    max-height: 90vh;
+  }
+
+  #task, #completed, #progress {
+    background-color: #4a8fdd;
+    overflow-x: hidden;
+    width: 60vw;
+    max-height: 90vh;
+    min-height: min-content;
+  }
+
+  .form-control {
+    font-size: 16px;
+  }
+
 }
 
 @media (min-width: 960px) {
 
-  #lg-none {
+   #lg-none {
     display: none;
   }
+
   #task, #completed, #progress {
     background-color: #4a8fdd;
     overflow-x: hidden;
