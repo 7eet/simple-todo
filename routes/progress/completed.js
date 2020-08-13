@@ -4,12 +4,9 @@ const localStorage = require('../../controller/local');
 
 router.post("/completed/:id", function (req, res) {
   params = req.params;
-  console.log("--- req.param ---> " + JSON.stringify(req.params))
   if (params) {
     data = newData(params);
-    console.log("--New data:-> " + JSON.stringify(data));
     filteredArray = removeOldData(params);
-    console.log("filted ->>> " + JSON.stringify(filteredArray))
     localStorage.writeFile('in-progress.txt', filteredArray, true);
     completedArray = localStorage.readFile("completed.txt");
     completedArray.push(data);
@@ -32,7 +29,6 @@ function removeOldData(parm) {
   filteredArray = localStorage
     .readFile("data.txt")
     .filter((item) => item.id != parm.id);
-  console.log("filteredArray -> " + JSON.stringify(filteredArray))
   return filteredArray;
 }
 

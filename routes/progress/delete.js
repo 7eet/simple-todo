@@ -4,10 +4,8 @@ const localStorage = require("../../controller/local");
 
 router.post("/delete/:id", function (req, res) {
   params = req.params;
-  console.log("--- req.param ---> " + JSON.stringify(req.params));
   if (params) {
-    filteredArray = removeOldData(params);
-    console.log("filted ->>> " + JSON.stringify(filteredArray));
+    filteredArray = removeOldData(params)
     localStorage.writeFile("in-progress.txt", filteredArray, true);
     return res.redirect("/");
   }
@@ -18,7 +16,6 @@ function removeOldData(parm) {
   filteredArray = localStorage
     .readFile("in-progress.txt")
     .filter((item) => item.id != parm.id);
-  console.log("filteredArray -> " + JSON.stringify(filteredArray));
   return filteredArray;
 }
 module.exports = router;
