@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const localStorage = require('../../controller/local');
+const logic = require("../../controller/logic")
 var uniqid = require("uniqid");
 
 router.post("/", function (req, res, next) {
@@ -15,8 +16,8 @@ router.post("/", function (req, res, next) {
 router.post("/:id", function (req, res) {
   params = req.params;
   if (params) {
-    data = newData(params);
-    filteredArray = removeOldData(params);
+    data = logic.getTask(params, "data.txt", "completed");
+    filteredArray = logic.removeOldData(params, "data.txt");
     localStorage.writeFile('data.txt', filteredArray, true);
     completedArray = localStorage.readFile("completed.txt");
     completedArray.push(data);
@@ -26,20 +27,5 @@ router.post("/:id", function (req, res) {
   todoData = localStorage.readFile('data.txt');
   return res.render("/");
 });
-
-function newData(parm) { 
-  array = localStorage.readFile('data.txt');
-  oldData = array.find(item => item.id == parm.id);
-  oldData.status = 'completed'
-  result = oldData;
-  return result;
-}
-
-function removeOldData(parm) { 
-  filteredArray = localStorage
-    .readFile("data.txt")
-    .filter((item) => item.id != parm.id);
-  return filteredArray;
-}
 
 module.exports = router;
