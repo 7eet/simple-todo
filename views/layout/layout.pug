@@ -2,11 +2,11 @@ mixin addForm(collapseId,route)
   <div id=#{collapseId} class="collapse p-2">
     <form method="post" action=#{route}>
       <div class="form-group form-row my-3" id="title">
-        <label for="tTitle">Title</label>
+        <label for="tTitle" class="text-light">Title</label>
         <input type="text" id="tTitle" class="form-control" name="tTitle" required>
       </div>
       <div class="form-group form-row my-3" id="description">
-        <label for="tDescription">Short Description</label>
+        <label for="tDescription" class="text-light">Short Description</label>
         <textarea id="tDescription" class="form-control" name="tDescription" rows="3" cols="5">
         </textarea>
       </div>
