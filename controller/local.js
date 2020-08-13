@@ -2,12 +2,10 @@ var fs = require("fs");
 
 exports.writeFile = function (filename, data, reWrite) {
   const cwd = process.cwd();
-  console.log(JSON.stringify(data))
   if (data) {
     let jsonData = null;
 
     if (!fs.existsSync(`${cwd}/data/` + filename)) {
-      console.log("creating it. - " + filename);
       fs.writeFileSync(`${cwd}/data/` + filename, "[]", (err) => {
         if (err) throw err;
         console.log("Failed to write data to file.");
@@ -24,12 +22,9 @@ exports.writeFile = function (filename, data, reWrite) {
              console.log("Failed to write data to file.");
            }
          );
-        console.log("re-writing" + JSON.stringify(data));
         return;
       }
       jsonData = readJson(filename);
-      console.log(`${jsonData} hereis jsondata from filename`)
-      console.log("adding data ");
       jsonData.push(data);
 
       fs.writeFileSync(
@@ -40,7 +35,6 @@ exports.writeFile = function (filename, data, reWrite) {
           console.log("Failed to write data to file.");
         }
       );
-      console.log("added" + JSON.stringify(jsonData));
     }
   }
 };
@@ -58,6 +52,5 @@ function readJson(filename) {
   if (data) {
     jsonData = JSON.parse(data);
   }
-  console.log("Returning data -> " + JSON.stringify(jsonData));
   return jsonData;
 }
