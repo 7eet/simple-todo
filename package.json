@@ -4,12 +4,9 @@
   "description": "A simple to-do web app",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon start",
+    "start": "node app.js",
+    "start-dev": "nodemon start",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": " "
   },
   "author": "7eet",
   "license": "ISC",
