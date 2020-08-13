@@ -1,6 +1,6 @@
-<div class="my-5 mx-2 p-3 round" id="progress">
+<div class="my-5 mx-2 p-3 pt-5 round" id="progress">
   if progress.length > 0
-    h4.text-light In-Progress&nbsp;&nbsp;#{progress.length}
+    h3.text-light In-Progress&nbsp;&nbsp;#{progress.length}
     <div class="d-flex justify-content-end">
       <button data-toggle="collapse" href='#prog-task' class="btn btn-warning rounded-pill">
         <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -42,6 +42,6 @@
         </button>
       </div>
       +addForm("prog-task","/progress")
-      h5.text-light.mt-5 No running task
+      h5.text-light.mt-5 No tasks
     </div>
 </div>

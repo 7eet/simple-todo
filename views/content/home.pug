@@ -1,9 +1,9 @@
 extends ../layout/layout.pug
 block content
-  <div class="d-md-flex" id="tasks">
-    <div class="my-5 mx-2 p-3 round" id="task">
+  <div class="d-lg-flex" id="tasks">
+    <div class="my-5 mx-2 p-3 pt-5 round" id="task">
       if data.length > 0
-        h4.text-light Your Tasks&nbsp;&nbsp;#{data.length}
+        h3.text-light Your Tasks&nbsp;&nbsp;#{data.length}
         <div class="d-flex justify-content-end">
           <button data-toggle="collapse" href='#add-task' class="btn btn-warning rounded-pill">
             <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@ block content
             </button>
           </div>
           +addForm("add-task","/")
-          h5.text-light.mt-5 No task added to list
+          h5.text-light.mt-5 No tasks
         </div>
     </div>
 

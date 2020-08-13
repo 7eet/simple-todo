@@ -1,6 +1,6 @@
-<div class="mx-2 my-5 p-3 round" id="completed">
+<div class="mx-2 my-5 p-3 pt-5 round" id="completed">
   if completed.length > 0
-    h4.text-light Completed&nbsp;&nbsp;#{completed.length}
+    h3.text-light Completed&nbsp;&nbsp;#{completed.length}
     <div class="d-flex justify-content-end">
       <button data-toggle="collapse" href='#comp-task' class="btn btn-warning rounded-pill">
         <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +37,6 @@
         </button>
       </div>
       +addForm("comp-task","/completed")
-      h5.text-light.mt-5 No completed task
+      h5.text-light.mt-5 No tasks
     </div>
 </div>
